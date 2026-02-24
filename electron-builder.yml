@@ -1,0 +1,36 @@
+appId: com.mdtoprint.app
+productName: MD to Print
+copyright: Copyright © 2026 MD to Print
+
+directories:
+  output: release
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: src/assets/icon.ico
+  artifactName: "${productName}-Setup-${version}.${ext}"
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: MD to Print
+
+extraResources:
+  - from: python-backend/dist/md-to-print-backend/
+    to: python-backend
+    filter:
+      - "**/*"
+
+files:
+  - src/**/*
+  - package.json
+  - "!src/renderer/app.js"
+  - "!src/renderer/editor.js"
+  - "!src/renderer/preview.js"
+  - "!src/renderer/printer.js"
+  - "!node_modules/**/*"

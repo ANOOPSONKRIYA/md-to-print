@@ -1,0 +1,10 @@
+node_modules/
+release/
+dist/
+python-backend/dist/
+python-backend/build/
+python-backend/__pycache__/
+python-backend/*.spec
+src/renderer/dist/
+*.log
+.env

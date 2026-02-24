@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self';" />
+  <title>MD to Print</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ─── Top Toolbar ─── -->
+  <header id="toolbar">
+    <div class="toolbar-left">
+      <button id="btn-open" title="Open .md file (Ctrl+O)">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M1.5 1h5l1 1H14.5a.5.5 0 0 1 .5.5v2H1V1.5a.5.5 0 0 1 .5-.5zM0 5v9.5a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V5H0z"/>
+        </svg>
+        Open
+      </button>
+      <button id="btn-save" title="Save (Ctrl+S)">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4.414L11.586 1H2zm0 1h9.586L14 4.414V14H2V2z"/>
+          <path d="M4 4h5v3H4V4zm0 5h8v5H4V9z"/>
+        </svg>
+        Save
+      </button>
+      <span id="file-name" class="file-label">Untitled</span>
+    </div>
+
+    <div class="toolbar-center">
+      <div class="paper-toggle">
+        <label class="paper-option">
+          <input type="radio" name="paperWidth" value="80" checked />
+          <span>80mm</span>
+        </label>
+        <label class="paper-option">
+          <input type="radio" name="paperWidth" value="58" />
+          <span>58mm</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="toolbar-right">
+      <select id="printer-select" title="Select printer">
+        <option value="">Loading printers...</option>
+      </select>
+      <button id="btn-refresh-printers" title="Refresh printer list">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 1 1 .908-.418A6 6 0 1 1 8 2v1z"/>
+          <path d="M8 1v3.5l2.5-2L8 1z"/>
+        </svg>
+      </button>
+      <button id="btn-print" class="btn-primary" title="Print receipt (Ctrl+P)">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+          <path d="M5 1a1 1 0 0 0-1 1v1H3.5A1.5 1.5 0 0 0 2 4.5v4A1.5 1.5 0 0 0 3.5 10H4v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3h.5A1.5 1.5 0 0 0 14 8.5v-4A1.5 1.5 0 0 0 12.5 3H12V2a1 1 0 0 0-1-1H5zm6 1v1H5V2h6zm-6 8v3h6v-3H5z"/>
+        </svg>
+        Print
+      </button>
+      <span id="status-indicator" class="status idle" title="Status">Ready</span>
+    </div>
+  </header>
+
+  <!-- ─── Main Content: Split Panes ─── -->
+  <main id="content">
+    <!-- Left: Markdown Editor -->
+    <section id="editor-pane">
+      <div class="pane-header">
+        <span>Markdown Editor</span>
+      </div>
+      <div id="editor-container"></div>
+    </section>
+
+    <!-- Resizer -->
+    <div id="pane-resizer"></div>
+
+    <!-- Right: Receipt Preview -->
+    <section id="preview-pane">
+      <div class="pane-header">
+        <span>Receipt Preview</span>
+        <span id="preview-paper-label" class="paper-label">80mm · 48 chars</span>
+      </div>
+      <div id="preview-scroll">
+        <div id="receipt-preview">
+          <div id="receipt-content">
+            <!-- Receipt lines rendered here -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── Toast Notification ─── -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Bundle (built by esbuild) -->
+  <script src="dist/bundle.js"></script>
+</body>
+</html>

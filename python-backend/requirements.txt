@@ -1,0 +1,5 @@
+mistune>=3.0.0
+python-escpos>=3.0
+pywin32>=306
+Pillow>=10.0.0
+qrcode>=7.4

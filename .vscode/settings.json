@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cd \"d:\\\\Github\\\\md to print\\\\python-backend\" ; echo '\\{\"action\": \"parse_preview\", \"markdown\": \"# My Store\\\\n---\\\\n\\*\\*Total:\\*\\* \\$44\\.00\\\\n---\\\\n\\[QR:https://example\\.com\\]\", \"paperWidth\": 80, \"id\": 2\\}' \\| python backend\\.py$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
