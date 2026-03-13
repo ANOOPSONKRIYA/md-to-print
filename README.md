@@ -2,7 +2,7 @@
 
 **Markdown to Thermal Receipt Printer (TVS RP3230) — Windows Desktop App**
 
-A lightweight Electron + Python desktop application that transforms Markdown (.md) files into neatly formatted receipts and prints them directly to a 3-inch thermal receipt printer using ESC/POS commands. It bypasses browser print dialogs and PDF generation — sending raw ESC/POS bytes straight to the printer for fast and reliable receipt printing.
+A lightweight Electron + Python desktop application that converts Markdown (.md) files into properly formatted receipts and prints them directly to a 3-inch thermal receipt printer using ESC/POS commands. No browser print dialog, no PDF conversion — raw ESC/POS bytes go straight to the printer.
 
 ---
 
